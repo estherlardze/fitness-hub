@@ -1,9 +1,10 @@
 import React from 'react';
-import { Exercise} from '../components/index'
+import { Exercise, Hero} from '../components/index'
 
 const Home = () => {
   return (
     <div>
+       <Hero />
        <Exercise />
     </div>
   )

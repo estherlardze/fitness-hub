@@ -1,10 +1,15 @@
-import React from 'react'
+import React from 'react';
+import {Navbar, RightsideHero} from './index';
+import {Box, Stack} from '@mui/material';
 
 const Hero = () => {
   return (
-    <div>
-      Hero
-    </div>
+    <Stack >
+      <Box>
+        <Navbar />
+        <RightsideHero />
+      </Box>
+    </Stack>
   )
 }
 
