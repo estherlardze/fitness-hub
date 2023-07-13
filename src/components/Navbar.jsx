@@ -5,7 +5,6 @@ import  Logo from '../assets/images/Logo.png'
 const Navbar = () => {
   return (
     <Stack direction="row"  
-       margin="30px 20px"
        alignItems="center"
        justifyContent="space-between"
        color="#fff"
