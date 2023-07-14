@@ -1,12 +1,13 @@
 import React from 'react';
-import { Exercise, Hero} from '../components/index'
+import { SearchExercises, Hero} from '../components/index';
+import {Box} from '@mui/material';
 
 const Home = () => {
   return (
-    <div>
+    <Box >
        <Hero />
-       <Exercise />
-    </div>
+       <SearchExercises/>
+    </Box>
   )
 }
 

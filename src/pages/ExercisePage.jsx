@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
+import {Box, Stack} from '@mui/material'
 
 const ExercisePage = () => {
   return (
-    <div>
+    <Stack>
       Exercise page
-    </div>
+    </Stack>
   )
 }
 

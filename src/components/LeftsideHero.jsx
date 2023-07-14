@@ -4,12 +4,12 @@ import {Box, Stack, Typography, Button } from '@mui/material'
 const LeftsideHero = () => {
   return (
     <Stack marginTop="60px" >
-       <div style=
+       {/* <div style=
           {{backgroundColor:"#fa5042",
            width:"50px", height:"40px",
            borderRadius:"15px",
            position:"absolute",
-           left:"0" }}></div>
+           left:"0" }}></div> */}
 
        <Typography  variant='body2'
         sx={{textTransform:"uppercase", 
@@ -40,7 +40,7 @@ const LeftsideHero = () => {
             >
             And repeat</Typography>
             <Typography sx={{textOverflow:"inherit"}}>Check out the most effective exercises personalized  to shape and build your ideal body</Typography>
-            <Button sx={{backgroundColor:"#f48915", mt:"30px", color:"#fff", p:"10px 20px"}}>Explore exercises</Button>
+            <Button variant="outlined" color="warning" sx={{ mt:"30px", color:"#fff", p:"10px 20px"}}>Explore exercises</Button>
         </Box>
         
     </Stack>

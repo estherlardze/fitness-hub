@@ -118,11 +118,12 @@
 .exercise-card:hover,
 .bodyPart-card:hover {
   transform: scale(1.1, 1.1);
+  background-color: #f48915;
 }
 
 .search-btn:hover {
-  color: #FF2625 !important;
-  border: 1px solid #FF2625 !important;
+  color: #f48915 !important;
+  border: 1px solid #f48915 !important;
 }
 
 .exercise-video {
@@ -188,6 +189,10 @@
 @media screen and (max-width:400px) {
   .exercise-card {
     width: 280px;
+  }
+  .blur{
+    width: 15rem;
+    height: 25rem;
   }
 }
 
