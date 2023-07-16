@@ -1,25 +1,40 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Box, Typography} from '@mui/material';
-import {ScrollMenu} from 'react-horizontal-scrolling-menu';
-import bodypart from '../assets/icons/gym.png'
+import {ScrollMenu, VisibilityContext} from 'react-horizontal-scrolling-menu';
+import LeftArrowIcon from '../assets/icons/left-arrow.png';
+import RightArrowIcon from '../assets/icons/right-arrow.png';
+import BodyPart from './BodyPart'
 
-const HorizontalScrllbar = ({data}) => {
+
+const HorizontalScrllbar = ({data, bodyPart, setBodyPart}) => {
  console.log(data);
 
+ const LeftArrow= () => {
+  const { scrollPrev } = useContext(VisibilityContext);
+
+  return (
+    <Typography onClick={() => scrollPrev()} className="right-arrow">
+      <img src={LeftArrowIcon} alt="right-arrow" />
+    </Typography>
+  );
+};
+
+const RightArrow = () => {
+  const { scrollNext } = useContext(VisibilityContext);
+   
+  return (
+    <Typography onClick={() => scrollNext()} className="left-arrow">
+      <img src={RightArrowIcon} alt="right-arrow" />
+    </Typography>
+  );
+};
+
 return(
-<ScrollMenu>
+<ScrollMenu RightArrow={RightArrow} LeftArrow={LeftArrow} >
     {data.map((item) => (
         <Box key={item.id}
-        className="bodyPart-card"
-         sx={{background:"#656565",
-          width:"150px",
-          borderRadius:"10px",
-          padding:"10px 20px",
-          margin:"0 20px",
-          alignItems:"center",
-          justifyContents:"center"}}>
-         <img src={bodypart} alt="gym" width="50px" heigth="50px" />
-        <Typography sx={{fontSize:"20px", marginTop:"10px"}}>{item}</Typography>
+           m="0 10px">
+         <BodyPart item={item} bodyPart={bodyPart} setBodyPart={setBodyPart}/>
         </Box> 
     ))}
 </ScrollMenu>

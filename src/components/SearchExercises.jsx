@@ -3,9 +3,8 @@ import {Box, Typography, Stack, TextField, Button} from '@mui/material';
 import { fetchExercise, exerciseOptions } from '../utils/FetchData';
 import {HorizontalScrllbar} from '../components/index';
 
-const SearchExercises = () => {
+const SearchExercises = ({bodyPart, setBodyPart, setExercises}) => {
   const [search, setSearch] = useState("");
-  const [exercises, setExercises] = useState([]);
   const [bodyParts, setBodyParts] = useState([]);
 
   useEffect(() =>  {
@@ -16,6 +15,7 @@ const SearchExercises = () => {
 
     fetchExerciseData();
   }, []);
+
 
   const handleSearch = async() =>{
     if(search){
@@ -66,8 +66,8 @@ const SearchExercises = () => {
         Search</Button>
       </Box> 
 
-      <Box>
-        <HorizontalScrllbar data={bodyParts}/>
+      <Box width="100%" position="absolute" padding="0 10px" marginTop="350px">
+        <HorizontalScrllbar data={bodyParts} bodyPart={bodyPart} setBodyPart={setBodyPart}/>
       </Box>
     </Stack>
   )
