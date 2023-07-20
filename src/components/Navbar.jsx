@@ -1,6 +1,7 @@
 import React from 'react';
 import {Stack, Typography} from '@mui/material';
-import  Logo from '../assets/images/Logo.png'
+import  Logo from '../assets/images/Logo.png';
+import {Link} from 'react-router-dom';
 
 const Navbar = () => {
   return (
@@ -16,7 +17,9 @@ const Navbar = () => {
          gap={4}
          sx={{alignItems:"center"}}
          >
-         <Typography fontSize="18px">Home</Typography>
+         <Link to="/" >
+          <Typography sx={{color:"#fff", fontSize:"18px"}}>Home</Typography>
+         </Link>
          <a href="#exercise"
           style={{color:"#fff", textDecoration:"none", fontSize:"20px", marginTop:"-5px"}}
          >Exercise</a>

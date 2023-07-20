@@ -8,7 +8,7 @@ const SearchExercises = ({bodyPart, setBodyPart, setExercises}) => {
   const [bodyParts, setBodyParts] = useState([]);
 
   useEffect(() =>  {
-    const fetchExerciseData = async() => {
+    const fetchExerciseData = async () => {
       const BodypartList = await fetchExercise("https://exercisedb.p.rapidapi.com/exercises/bodyPartList", exerciseOptions);
       setBodyParts(["all", ...BodypartList])
     }
@@ -20,15 +20,14 @@ const SearchExercises = ({bodyPart, setBodyPart, setExercises}) => {
   const handleSearch = async() =>{
     if(search){
       const searchedExercise = await fetchExercise("https://exercisedb.p.rapidapi.com/exercises", exerciseOptions);
-      const filteredExercise = searchedExercise.filter((exercise) =>{
+      const filteredExercise = searchedExercise.filter((exercise) =>(
         exercise.name.toLowerCase().includes(search)||
         exercise.target.toLowerCase().includes(search)||
         exercise.equipment.toLowerCase().includes(search)||
         exercise.bodyPart.toLowerCase().includes(search)
-       })
+      ))
        setSearch("")
-       setExercises(filteredExercise)
-      console.log(searchedExercise)
+       setExercises(filteredExercise)      
     }
   }
    
@@ -66,7 +65,7 @@ const SearchExercises = ({bodyPart, setBodyPart, setExercises}) => {
         Search</Button>
       </Box> 
 
-      <Box width="100%" position="absolute" padding="0 10px" marginTop="350px">
+      <Box width="100%" position="absolute" padding="0 10px" marginTop="380px" >
         <HorizontalScrllbar data={bodyParts} bodyPart={bodyPart} setBodyPart={setBodyPart}/>
       </Box>
     </Stack>

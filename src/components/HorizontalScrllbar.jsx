@@ -6,9 +6,9 @@ import RightArrowIcon from '../assets/icons/right-arrow.png';
 import BodyPart from './BodyPart'
 
 
-const HorizontalScrllbar = ({data, bodyPart, setBodyPart}) => {
- console.log(data);
-
+const HorizontalScrllbar = ({data, bodyPart, setBodyPart, bodyParts}) => {
+//  console.log(bodyPart);
+ 
  const LeftArrow= () => {
   const { scrollPrev } = useContext(VisibilityContext);
 
@@ -32,9 +32,11 @@ const RightArrow = () => {
 return(
 <ScrollMenu RightArrow={RightArrow} LeftArrow={LeftArrow} >
     {data.map((item) => (
-        <Box key={item.id}
+        <Box 
+          key={item}
+          title={item}
            m="0 10px">
-         <BodyPart item={item} bodyPart={bodyPart} setBodyPart={setBodyPart}/>
+        <BodyPart item={item} bodyPart={bodyPart} setBodyPart={setBodyPart} /> 
         </Box> 
     ))}
 </ScrollMenu>

@@ -13,7 +13,7 @@ function App() {
     <Stack className='App'>
       <Routes>
         <Route exact path="/" element={<Home/>}/>
-        <Route exact path="/Exercise/:id" element={<ExercisePage/>}/>
+        <Route exact path="/exercise/:id" element={<ExercisePage/>}/>
       </Routes>
       <Footer/>
     </Stack>
