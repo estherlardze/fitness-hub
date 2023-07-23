@@ -20,30 +20,27 @@ const SearchExercises = ({bodyPart, setBodyPart, setExercises}) => {
   const handleSearch = async() =>{
     if(search){
       const searchedExercise = await fetchExercise("https://exercisedb.p.rapidapi.com/exercises", exerciseOptions);
-      const filteredExercise = searchedExercise.filter((exercise) =>(
-        exercise.name.toLowerCase().includes(search)||
-        exercise.target.toLowerCase().includes(search)||
-        exercise.equipment.toLowerCase().includes(search)||
-        exercise.bodyPart.toLowerCase().includes(search)
-      ))
-       setSearch("")
+
+      const filteredExercise = searchedExercise.filter((exercise) =>
+        exercise.name.toLowerCase().includes(search)|| exercise.target.toLowerCase().includes(search)||
+        exercise.equipment.toLowerCase().includes(search)|| exercise.bodyPart.toLowerCase().includes(search)  
+      )
+      console.log(filteredExercise)
        setExercises(filteredExercise)      
     }
+    setSearch("")
   }
-   
+ 
   return (
     <Stack sx={{ 
-     color:"#fff", 
-     marginTop:"140px",
-    alignItems:"center",
-    justifyContent:"center"
+     color:"#fff", marginTop:"140px", alignItems:"center", justifyContent:"center"
      }}>
 
       <Typography sx={{
-         textAlign:"center", 
-         fontSize:{xs:"28px", md:"45px"}, 
-         fontWeight:700,
-         marginBottom:"30px"}}>Awesome exercises you <br /> should know</Typography>
+         textAlign:"center", fontSize:{xs:"28px", md:"45px"}, fontWeight:700, marginBottom:"30px"}}>
+          Awesome exercises you <br /> should know
+      </Typography>
+
        <Box sx={{ position:"relative", marginBottom:"70px"}} >
        <TextField 
         sx={{input:{

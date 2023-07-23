@@ -7,19 +7,20 @@ import { exerciseOptions, fetchExercise } from '../utils/FetchData';
 
 const Exercises = ({exercises, setExercises, bodyPart}) => {
 
+console.log(typeof exercises)
   const [CurrentPage, setCurrentPage] = useState(1);
-  const [CountsPerPage] = useState(9);
+  const CountsPerPage = useState(9);
 
-  const lastPageIndex = CurrentPage * CountsPerPage;
-  const firstIndexPage = lastPageIndex - CountsPerPage; 
-  const exerciseCount = exercises.slice(firstIndexPage, lastPageIndex);
+  // const lastPageIndex = CurrentPage * CountsPerPage;
+  // const firstIndexPage = lastPageIndex - CountsPerPage; 
+  // const exerciseCount = exercises.slice(firstIndexPage, lastPageIndex);
 
-  console.log(exerciseCount)
+  // // console.log(exerciseCount)
 
-  const paginate = (e,  value) => {
-    setCurrentPage(value);
-    window.scrollTo({ top: 1200, behavior: 'smooth' });
-  }
+  // const paginate = (e,  value) => {
+  //   setCurrentPage(value);
+  //   window.scrollTo({ top: 1200, behavior: 'smooth' });
+  // }
 
   useEffect(() =>{
 
@@ -30,15 +31,16 @@ const Exercises = ({exercises, setExercises, bodyPart}) => {
        BodypartData =  await fetchExercise("https://exercisedb.p.rapidapi.com/exercises", exerciseOptions);     
       }
       else {
-        BodypartData = await fetchExercise(`https://exercisedb.p.rapidapi.com/exercises/bodyPart${bodyPart}`, exerciseOptions);
+        BodypartData = await fetchExercise(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`, exerciseOptions);
       }
       setExercises(BodypartData);
     } 
     exerciseData();
 
   },[bodyPart])
+
  
-  if(!exerciseCount.length) return "Loading..."
+  if(!exercises.length) return "Loading..."
   return (
     <Box id='exercises' margin="300px 40px 10px">
       <Typography variant='h3' color="#fff" marginBottom="50px">Showing results</Typography>
@@ -48,7 +50,7 @@ const Exercises = ({exercises, setExercises, bodyPart}) => {
        flexWrap="wrap" gap="47px"
        marginBottom="50px">
 
-      {exerciseCount.map((newexercise) => (
+      {exercises.slice(0,50).map((newexercise) => (
          <Link to="/newexercise/${newexercise.id}" className='exercise-card' key={newexercise.id}>
         <img src={newexercise.gifUrl} alt="gif" />
         <Stack direction="row" justifyContent="space-around" color="#fff">
@@ -83,7 +85,7 @@ const Exercises = ({exercises, setExercises, bodyPart}) => {
       </Link>
        ))}
       </Stack>
-      <Stack  alignItems="center" marginTop="100px">
+      {/* <Stack  alignItems="center" marginTop="100px">
         {exercises.length > 9 && ( 
           <Pagination 
           sx={{color:"#fff"}}
@@ -93,7 +95,7 @@ const Exercises = ({exercises, setExercises, bodyPart}) => {
            onChange={paginate}
           />
         )}
-      </Stack>
+      </Stack> */}
     </Box>
   )
 }

@@ -1,8 +1,8 @@
 import React, {useContext} from 'react';
 import {Box, Typography} from '@mui/material';
 import {ScrollMenu, VisibilityContext} from 'react-horizontal-scrolling-menu';
-import LeftArrowIcon from '../assets/icons/left-arrow.png';
-import RightArrowIcon from '../assets/icons/right-arrow.png';
+import leftArrow from '../assets/icons/left-arrow.png';
+import rightArrow from '../assets/icons/right-arrow.png';
 import BodyPart from './BodyPart'
 
 
@@ -14,7 +14,7 @@ const HorizontalScrllbar = ({data, bodyPart, setBodyPart, bodyParts}) => {
 
   return (
     <Typography onClick={() => scrollPrev()} className="right-arrow">
-      <img src={LeftArrowIcon} alt="right-arrow" />
+      <img src={leftArrow} alt="left-arrow" />
     </Typography>
   );
 };
@@ -24,7 +24,7 @@ const RightArrow = () => {
    
   return (
     <Typography onClick={() => scrollNext()} className="left-arrow">
-      <img src={RightArrowIcon} alt="right-arrow" />
+      <img src={rightArrow} alt="right-arrow" />
     </Typography>
   );
 };
