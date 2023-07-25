@@ -10,6 +10,7 @@ const SearchExercises = ({bodyPart, setBodyPart, setExercises}) => {
   useEffect(() =>  {
     const fetchExerciseData = async () => {
       const BodypartList = await fetchExercise("https://exercisedb.p.rapidapi.com/exercises/bodyPartList", exerciseOptions);
+      console.log(BodypartList)
       setBodyParts(["all", ...BodypartList])
     }
 
@@ -25,22 +26,26 @@ const SearchExercises = ({bodyPart, setBodyPart, setExercises}) => {
         exercise.name.toLowerCase().includes(search)|| exercise.target.toLowerCase().includes(search)||
         exercise.equipment.toLowerCase().includes(search)|| exercise.bodyPart.toLowerCase().includes(search)  
       )
-      console.log(filteredExercise)
+      console.log(searchedExercise)
        setExercises(filteredExercise)      
     }
     setSearch("")
   }
  
+   
   return (
     <Stack sx={{ 
-     color:"#fff", marginTop:"140px", alignItems:"center", justifyContent:"center"
+     color:"#fff", 
+     marginTop:"140px",
+    alignItems:"center",
+    justifyContent:"center"
      }}>
 
       <Typography sx={{
-         textAlign:"center", fontSize:{xs:"28px", md:"45px"}, fontWeight:700, marginBottom:"30px"}}>
-          Awesome exercises you <br /> should know
-      </Typography>
-
+         textAlign:"center", 
+         fontSize:{xs:"28px", md:"45px"}, 
+         fontWeight:700,
+         marginBottom:"30px"}}>Awesome exercises you <br /> should know</Typography>
        <Box sx={{ position:"relative", marginBottom:"70px"}} >
        <TextField 
         sx={{input:{

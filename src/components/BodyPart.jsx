@@ -16,7 +16,8 @@ const BodyPart = ({item, bodyPart, setBodyPart}) => {
         justifyContents:"center",
         cursor:"pointer"
     }}
-     onClick={() => setBodyPart(item)}
+     onClick={() => {setBodyPart(item); window.scrollTo({top:1200, behaviour:"smooth"})}}
+              
      
     >
       <img src={gym} alt="gym" width="50px" heigth="50px" />

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Navbar, RightsideHero, LeftsideHero} from './index';
+import { RightsideHero, LeftsideHero} from './index';
 import {Box, Stack} from '@mui/material';
 
 const Hero = () => {
@@ -9,7 +9,6 @@ const Hero = () => {
        <Box flex={2} 
        sx={{ margin:{xs:"30px 20px", md:"30px 40px"}}}
       >
-        <Navbar />
         <LeftsideHero />
       </Box> 
 

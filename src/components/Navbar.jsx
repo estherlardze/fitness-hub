@@ -9,6 +9,7 @@ const Navbar = () => {
        alignItems="center"
        justifyContent="space-between"
        color="#fff"
+       margin={{xs:"20px"}}
        >
       <img src={Logo} alt="logo" style={{width: "50px", height:"50px"}}/>
 
