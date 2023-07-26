@@ -25,9 +25,9 @@ const exerciseData = [
 ]
   console.log(ExerciseDetails)
   return (
-    <Stack direction={{xs: "column", lg:"row"}} gap="80px"
-       color="#fff" justifyContent="center"
-      alignItems="center" margin={{xs: "20px"}}>
+    <Stack direction={{xs: "column", lg:"row"}} gap="80px"color="#fff" 
+      justifyContent="flex-start" margin={{xs:"20px", lg:"0 50px"}}
+      alignItems="center" >
       <img src={ExerciseDetails.gifUrl} alt={ExerciseDetails.id} className='exercisepage-card'/>
       <Stack>
 

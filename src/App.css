@@ -96,7 +96,7 @@ html {
 }
 .exercise-card {
   width: 400px;
-  height: 445px;
+  height: 450px;
   background: #fff;
   border-top: 4px solid #f26209;
   border-bottom-left-radius: 20px;
@@ -106,11 +106,11 @@ html {
   justify-content: space-between;
   flex-direction: column;
   padding-bottom: 10px;
-  transform: scale(1, 1);
+  transform: scale(1);
   transition: 0.3s all ease-in-out;
 }
 .exercisepage-card {
-  width: 600px;
+  width: 620px;
   height: 445px;
   
 }
@@ -126,7 +126,7 @@ html {
 
 .exercise-card:hover,
 .bodyPart-card:hover {
-  transform: scale(1.1, 1.1);
+  transform: scale(1.1);
   background-color: #f8952a;
 }
 

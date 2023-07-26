@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 const ExerciseCard = ({exercise}) => {
   return (
       <Link to={`/exercise/${exercise.id}`} className='exercise-card'>
-        <img src={exercise.gifUrl} alt="gif" loading="lazy"/>
-        <Stack direction="row" justifyContent="space-around" color="#fff">
+        <img src={exercise.gifUrl} alt="gif" loading="lazy" height="350px"/>
+        <Stack direction="row" justifyContent="space-around" color="#fff" mt="10px">
           <Button 
             sx={{backgroundColor:"#e8b533",
              borderRadius:"20px",
@@ -30,8 +30,9 @@ const ExerciseCard = ({exercise}) => {
           sx={{color:"#000",
           textTransform:"capitalize",
           textAlign:"center",
-          fontSize:"18px",
-          fontWeight:700}}>
+          fontSize:"16px",
+          fontWeight:700,
+          margin:"20px"}}>
 
           {exercise.name.slice(0,30)}
           </Typography>
