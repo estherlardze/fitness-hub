@@ -4,11 +4,11 @@ This is a fitness app built using React.js, material ui and an exercise db Api f
 <img src="./homepage.png">
 
 ### How to Use
-clone this repository to your local machine using the following command:
+clone this repository to your local machine using the following command: <br/>
 git clone <https://github.com/estherlardze/fitness_hub.git>
 
-Navigate to the project directory and install the required dependencies using npm:
-cd fitness_hub
+Navigate to the project directory and install the required dependencies using npm: <br/>
+cd fitness_hub <br />
 npm install
 
 Once the dependencies are installed, start the development server:
