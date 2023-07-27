@@ -3,7 +3,7 @@ import {Box, Stack, Typography, Button } from '@mui/material'
 
 const LeftsideHero = () => {
   return (
-    <Stack marginTop="60px" >
+    <Stack marginTop="20px" >
        {/* <div style=
           {{backgroundColor:"#fa5042",
            width:"50px", height:"40px",

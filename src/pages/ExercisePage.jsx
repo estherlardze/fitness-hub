@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Stack} from '@mui/material';
-import { ExerciseDetail, ExerciseVideo, SimilarExercise } from '../components';
+import { ExerciseDetail, ExerciseVideo, SimilarExercise , Footer} from '../components';
 import { exerciseOptions, fetchExercise , YoutubeOptions} from '../utils/FetchData';
 import { useParams } from 'react-router-dom';
 
@@ -25,7 +25,7 @@ const ExercisePage = () => {
       const ExercicebyTarget = await fetchExercise(`https://exercisedb.p.rapidapi.com/exercises/target/${fetchExercisebyId.target}`, exerciseOptions)
       setExercisebyTarget(ExercicebyTarget)
 
-      const ExercicebyEquipment = await fetchExercise(`https://exercisedb.p.rapidapi.com/exercises/target/${fetchExercisebyId.equipment}`, exerciseOptions)
+      const ExercicebyEquipment = await fetchExercise(`https://exercisedb.p.rapidapi.com/exercises/equipment/${fetchExercisebyId.equipment}`, exerciseOptions)
       setExercisebyEquipment(ExercicebyEquipment)
       // console.log(ExercicebyTarget)
     }
@@ -36,10 +36,12 @@ const ExercisePage = () => {
 
   return (
     <Stack>
-      <div className='blur'></div>
+      <div className='blur-right'></div>
       <ExerciseDetail ExerciseDetails={ExerciseDetails}/>
       <ExerciseVideo  exerciseVideos={exerciseVideos} name = {ExerciseDetails.name}/>
       <SimilarExercise exercisebyTarget={exercisebyTarget} exercisebyEquipment={exercisebyEquipment}/>
+      <hr style={{backgroundColor:"#fff"}}/>
+      <Footer/>
     </Stack>
   )
 }

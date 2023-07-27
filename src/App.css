@@ -16,8 +16,8 @@ html {
   --lightgray: #D9D9D9;
   --gray: #9c9c9c;
   --orange: #f48915;
-  --darkGrey: #464D53;
-  --caloryCard: #656565;
+  --darkGrey: #57595b;
+  --caloryCard: #e85217;
   --planCard: linear-gradient(210.41deg, #fa5042 1.14%, #ffa739 100.75%);
   --appColor:  #2b2c2e;
 }
@@ -30,6 +30,7 @@ html {
   gap: 6rem;
   overflow: hidden;
 }
+
 ::-webkit-scrollbar{
   display: none;
 }
@@ -43,6 +44,17 @@ html {
   left: 0;
   z-index: -9;
 }
+.blur-right{
+  background:#ee7b38;
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(200px);
+  width: 25rem;
+  height: 30rem;
+  right: 0;
+  z-index: -9;
+}
+
 .right-arrow,
 .left-arrow {
   cursor: pointer;
@@ -52,7 +64,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #FF2625;
+  color: #da794d;
   font-size: 16px;
   border-radius: 4px;
   position: absolute;
@@ -127,7 +139,6 @@ html {
 .exercise-card:hover,
 .bodyPart-card:hover {
   transform: scale(1.1);
-  background-color: #f8952a;
 }
 
 .search-btn:hover {
@@ -147,9 +158,11 @@ html {
   flex-direction: column;
   gap: 15px;
   width: 387px;
-  height: 350px;
+  height: 370px;
   text-decoration: none;
-  background-color: #35383b;
+  color: #fff;
+ 
+  background: #57595b;
 }
 
 @media screen and (max-width:1200px) {

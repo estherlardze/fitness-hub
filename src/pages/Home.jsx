@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { SearchExercises, Hero, Exercises} from '../components/index';
+import { SearchExercises, Hero, Exercises, Navbar} from '../components/index';
 import {Box} from '@mui/material';
 
 
@@ -9,6 +9,7 @@ const Home = () => {
   const [bodyPart, setBodyPart] = useState("all")
   return (
     <Box >
+       <Navbar />
        <Hero />
        <SearchExercises 
         setExercises={setExercises}

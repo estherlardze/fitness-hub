@@ -7,7 +7,7 @@ const Hero = () => {
     <Stack direction={{xs:"column", md:"row" }}>
        <div className='blur'></div> 
        <Box flex={2} 
-       sx={{ margin:{xs:"30px 20px", md:"30px 40px"}}}
+       sx={{ margin:{xs:"30px 20px", lg:"30px 40px"}}}
       >
         <LeftsideHero />
       </Box> 

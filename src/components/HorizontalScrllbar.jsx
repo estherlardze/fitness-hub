@@ -7,8 +7,8 @@ import BodyPart from './BodyPart'
 import ExerciseCard from './ExerciseCard';
 
 
-const HorizontalScrllbar = ({data, bodyPart, setBodyPart, bodyParts}) => {
-//  console.log(bodyPart);
+const HorizontalScrllbar = ({data, bodyPart, setBodyPart, bodyParts }) => {
+//  console.log(data);
  
  const LeftArrow= () => {
   const { scrollPrev } = useContext(VisibilityContext);
@@ -34,10 +34,11 @@ return(
 <ScrollMenu RightArrow={RightArrow} LeftArrow={LeftArrow} >
     {data.map((item) => (
         <Box 
-          key={item}
-          title={item}
+        key={item.id || item}
+        itemId={item.id || item}
+        title={item.id || item}
            m="0 10px">
-       {bodyParts? <BodyPart item={item} bodyPart={bodyPart} setBodyPart={setBodyPart}/> : <ExerciseCard exercise={item} />}
+       {bodyParts  ? <BodyPart item={item} bodyPart={bodyPart} setBodyPart={setBodyPart}/> : <ExerciseCard exercise={item} />}
         </Box> 
     ))}
 </ScrollMenu>

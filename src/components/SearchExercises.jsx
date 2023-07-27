@@ -7,15 +7,17 @@ const SearchExercises = ({bodyPart, setBodyPart, setExercises}) => {
   const [search, setSearch] = useState("");
   const [bodyParts, setBodyParts] = useState([]);
 
+  // console.log(bodyParts)
+
   useEffect(() =>  {
     const fetchExerciseData = async () => {
       const BodypartList = await fetchExercise("https://exercisedb.p.rapidapi.com/exercises/bodyPartList", exerciseOptions);
-      console.log(BodypartList)
+      // console.log(BodypartList)
       setBodyParts(["all", ...BodypartList])
     }
 
     fetchExerciseData();
-  }, []);
+  }, [bodyPart]);
 
 
   const handleSearch = async() =>{
@@ -26,7 +28,7 @@ const SearchExercises = ({bodyPart, setBodyPart, setExercises}) => {
         exercise.name.toLowerCase().includes(search)|| exercise.target.toLowerCase().includes(search)||
         exercise.equipment.toLowerCase().includes(search)|| exercise.bodyPart.toLowerCase().includes(search)  
       )
-      console.log(searchedExercise)
+      // console.log(searchedExercise)
        setExercises(filteredExercise)      
     }
     setSearch("")
@@ -34,18 +36,12 @@ const SearchExercises = ({bodyPart, setBodyPart, setExercises}) => {
  
    
   return (
-    <Stack sx={{ 
-     color:"#fff", 
-     marginTop:"140px",
-    alignItems:"center",
-    justifyContent:"center"
-     }}>
+    <Stack sx={{  color:"#fff",  marginTop:"140px", alignItems:"center",  justifyContent:"center" }}>
 
-      <Typography sx={{
-         textAlign:"center", 
-         fontSize:{xs:"28px", md:"45px"}, 
-         fontWeight:700,
-         marginBottom:"30px"}}>Awesome exercises you <br /> should know</Typography>
+      <Typography sx={{ textAlign:"center",  fontSize:{xs:"28px", md:"45px"},  fontWeight:700, marginBottom:"30px"}}>
+         Awesome exercises you <br /> should know
+      </Typography>
+
        <Box sx={{ position:"relative", marginBottom:"70px"}} >
        <TextField 
         sx={{input:{
@@ -68,7 +64,7 @@ const SearchExercises = ({bodyPart, setBodyPart, setExercises}) => {
       </Box> 
 
       <Box width="100%" position="absolute" padding="0 10px" marginTop="380px" >
-        <HorizontalScrllbar data={bodyParts} bodyPart={bodyPart} setBodyPart={setBodyPart}/>
+        <HorizontalScrllbar data={bodyParts} bodyParts bodyPart={bodyPart} setBodyPart={setBodyPart}/>
       </Box>
     </Stack>
   )

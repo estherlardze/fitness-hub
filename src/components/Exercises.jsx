@@ -1,6 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import {Box, Stack, Typography, Button} from '@mui/material';
-import {Link} from 'react-router-dom';
+import React, { useEffect} from 'react';
+import {Box, Stack, Typography} from '@mui/material';
 import ExerciseCard from './ExerciseCard';
 
 import { exerciseOptions, fetchExercise } from '../utils/FetchData';
@@ -22,7 +21,7 @@ const Exercises = ({exercises, setExercises, bodyPart}) => {
     } 
     exerciseData();
 
-  },[bodyPart])
+  },[])
 
  
   if(!exercises.length) return "Loading..."
@@ -35,9 +34,7 @@ const Exercises = ({exercises, setExercises, bodyPart}) => {
        flexWrap="wrap" gap="47px"
        marginBottom="50px">
 
-      {exercises.slice(0,50).map((exercise, index) => (
-          
-      
+      {exercises.slice(0,50).map((exercise, index) => (  
        <ExerciseCard  exercise={exercise} key={index}/>
        ))}
       </Stack>
