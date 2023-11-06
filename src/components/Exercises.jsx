@@ -1,10 +1,12 @@
-import React, { useEffect} from 'react';
+import React, { useEffect, useState} from 'react';
 import {Box, Stack, Typography} from '@mui/material';
 import ExerciseCard from './ExerciseCard';
-
+import LoadingSpinner from './Loader';
 import { exerciseOptions, fetchExercise } from '../utils/FetchData';
 
 const Exercises = ({exercises, setExercises, bodyPart}) => {
+  const [isLoading, setIsLoading] = useState(true);
+
 
   useEffect(() =>{
 
@@ -17,6 +19,7 @@ const Exercises = ({exercises, setExercises, bodyPart}) => {
       else {
         BodypartData = await fetchExercise(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`, exerciseOptions);
       }
+      setIsLoading(false)
       setExercises(BodypartData);
     } 
     exerciseData();
@@ -24,9 +27,12 @@ const Exercises = ({exercises, setExercises, bodyPart}) => {
   },[])
 
  
-  if(!exercises.length) return "Loading..."
+  if(!exercises.length) return 
+
   return (
-    <Box id='exercise' margin="300px 40px 10px">
+    <>
+    {isLoading ? <LoadingSpinner/> :
+      (<Box id='exercise' margin="300px 40px 10px">
       <Typography variant='h3' color="#fff" marginBottom="50px">Showing results {bodyPart ? <span style={{color:"tomato"}}>{`${bodyPart}`}</span> : ""}  workouts</Typography>
       <Stack direction="row"
        alignItems="center" 
@@ -39,7 +45,10 @@ const Exercises = ({exercises, setExercises, bodyPart}) => {
        ))}
       </Stack>
 
-    </Box>
+    </Box>)
+}
+    </>
+    
   )
 }
 

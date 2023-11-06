@@ -1,11 +1,12 @@
 import React from 'react';
 import {Typography, Stack} from '@mui/material';
-
+import LoadingSpinner from './Loader'
 
 const ExerciseVideo = ({exerciseVideos, name}) => {
-  // console.log(exerciseVideos)
+   console.log(exerciseVideos)
 
-  if(!exerciseVideos) return "Loading..."
+  if(!exerciseVideos) return <LoadingSpinner/>
+
   return (
     <Stack  margin={{xs:"20px", lg:"0 50px"}}
      justifyContent="flex-start"  mt={{xs:"40px", lg:"120px"}}
@@ -18,7 +19,7 @@ const ExerciseVideo = ({exerciseVideos, name}) => {
 
           {exerciseVideos.slice(0,6).map((item) => (
           
-            //  console.log(item)
+             
             <a href={`https://www.youtube.com/watch?v=${item.video.videoId}`}
               target="_blank"
               key={item.video.videoId}

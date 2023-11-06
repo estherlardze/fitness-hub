@@ -1,4 +1,4 @@
-import React from 'react';
+import {Link} from 'react-router-dom';
 import {Stack, Typography} from '@mui/material';
 import bodypartIcon from '../assets/icons/body-part.png';
 import targetIcon from '../assets/icons/target.png';
@@ -23,10 +23,13 @@ const exerciseData = [
     text: ExerciseDetails.equipment,
     }
 ]
-  console.log(ExerciseDetails)
+ // console.log(ExerciseDetails)
+ 
   return (
     <Stack  >
-         <img src={Logo} alt="logo" style={{width: "50px", height:"50px", margin:"20px 40px"}}/>
+     <Link to='/'>
+      <img src={Logo} alt="logo" style={{width: "50px", height:"50px", margin:"20px 40px"}}/>
+     </Link>
         <Stack direction={{xs: "column", lg:"row"}} gap="80px"color="#fff" 
       justifyContent="flex-start" margin={{xs:"20px", lg:"0 50px"}}
       alignItems="center">

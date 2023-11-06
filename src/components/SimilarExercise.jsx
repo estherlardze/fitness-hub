@@ -1,6 +1,7 @@
 import React from 'react';
 import {Stack, Box, Typography} from '@mui/material';
 import HorizontalScrllbar from './HorizontalScrllbar';
+import LoadingSpinner from './Loader'
 
 const SimilarExercise = ({exercisebyTarget, exercisebyEquipment}) => {
   //  console.log(exercisebyTarget)
@@ -14,7 +15,7 @@ const SimilarExercise = ({exercisebyTarget, exercisebyEquipment}) => {
           </Typography>
 
            {exercisebyTarget.length !== 0 ? <HorizontalScrllbar data={exercisebyTarget}/> 
-           : <Typography color="#fff" variant='h4'>Loading...</Typography>}
+           : <LoadingSpinner/>}
       </Stack>
 
       <Stack marginTop={{xs:"40px", lg:"100px"}}>
@@ -22,7 +23,7 @@ const SimilarExercise = ({exercisebyTarget, exercisebyEquipment}) => {
          Similar <span style={{color:"#e85217"}}>Equipment</span> Exercises
        </Typography>
        {exercisebyEquipment.length !== 0 ? <HorizontalScrllbar data={exercisebyEquipment}/> 
-       : <Typography color="#fff" variant='h4'>Loading...</Typography>}
+       : <LoadingSpinner/>}
        </Stack> 
      </Box>
   )
